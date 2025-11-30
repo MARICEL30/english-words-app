@@ -1,10 +1,13 @@
 import "./App.css";
-import {
-  useWordRequest,
-  type ReturnValues,
-} from "./components/api/useWordRequest";
+import { useWordRequest } from "./components/api/useWordRequest";
 import { Header } from "./components/Header";
 import { SearchBar } from "./components/SearchBar";
+
+interface ReturnValues {
+  word: string;
+  entries: [];
+  pronunciations: [];
+}
 
 function App() {
   const { data, error, isLoading } = useWordRequest();
@@ -17,14 +20,15 @@ function App() {
     return <p>This is an error</p>;
   }
   console.log(data);
+
   return (
     <div>
+      <Header />
+      <SearchBar />
       {data &&
         data.entries.map((item: ReturnValues) => (
           <p key={item.word}>{item.word}</p>
         ))}
-      <Header />
-      <SearchBar />
     </div>
   );
 }

@@ -7,7 +7,7 @@ export interface ReturnValues {
 }
 
 export const useWordRequest = () => {
-  const url = "https://freedictionaryapi.com/api/v1/entries/en/hello";
+  const url = `https://freedictionaryapi.com/api/v1/entries/en/{word}`;
 
   const returnWords = useQuery<ReturnValues>({
     queryKey: ["word"],
