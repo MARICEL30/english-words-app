@@ -44,7 +44,7 @@ const App = () => {
           data.entries.slice(0, 1).map((item: Entry, index: number) => (
             <div key={index}>
               <p>{item.word}</p>
-              <p>{item.pronunciations?.[0]?.text}</p>
+              <p> Pronunciation: {item.pronunciations?.[0]?.text}</p>
 
               {/* <p>{item.entries[0]?.partOfSpeech}</p> */}
             </div>

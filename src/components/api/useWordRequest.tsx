@@ -9,8 +9,9 @@ export const useWordRequest = (word: string) => {
   const url = `https://freedictionaryapi.com/api/v1/entries/en/${word}`;
 
   const returnWords = useQuery<ReturnValues>({
-    queryKey: ["word"],
+    queryKey: ["word", word],
     queryFn: () => fetch(url).then((response) => response.json()),
+    enabled: !!word.trim(),
   });
 
   return returnWords;
