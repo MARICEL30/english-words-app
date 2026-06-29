@@ -1,5 +1,10 @@
 import React from "react";
-import { Form } from "./SearchBar.styled";
+import {
+  Form,
+  SearchButton,
+  SearchContainer,
+  SearchInput,
+} from "./SearchBar.styled";
 
 interface SearchBarProps {
   onSearch: (word: string) => void;
@@ -19,11 +24,15 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
   };
 
   return (
-    <div>
+    <SearchContainer>
       <Form onSubmit={handleSubmit}>
-        <input placeholder="Search Word" name="query" />
-        <button type="submit">Submit</button>
+        <SearchInput
+          placeholder="Search for a word..."
+          name="query"
+          aria-label="Search for a word"
+        />
+        <SearchButton type="submit">Search</SearchButton>
       </Form>
-    </div>
+    </SearchContainer>
   );
 };

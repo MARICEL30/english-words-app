@@ -5,6 +5,9 @@ import { Header } from "./components/Header";
 import { SearchBar } from "./components/SearchBar";
 
 interface Entry {
+  senses: Array<{
+    definition: string;
+  }>;
   word: string;
   language?: object;
   synonyms: string[];
@@ -20,24 +23,14 @@ const App = () => {
   const [searchWord, setSearchWord] = useState<string>("");
   const { isLoading, data } = useWordRequest(searchWord);
 
-  // const firstPronunciation =
-  //   (data?.entries as Entry[] | undefined)?.[0].pronunciations?.[0] ?? null;
-
   if (!data && isLoading && searchWord) {
     return <p>Loading...</p>;
   }
-
-  console.log("this is the data", data?.entries);
-  // Add more detailed logging to understand the structure
-  console.log("first entry:", data?.entries);
-
+  console.log(data);
   return (
     <div>
       <Header />
       <SearchBar onSearch={setSearchWord} />
-      {/* {isLoading && searchWord && <p> Loading ...</p>} */}
-      {/* {error && <p>Error: Could not find word</p>} */}
-
       <div>
         <h3>Results for {searchWord}</h3>
         {data &&
@@ -45,8 +38,7 @@ const App = () => {
             <div key={index}>
               <p>{item.word}</p>
               <p> Pronunciation: {item.pronunciations?.[0]?.text}</p>
-
-              {/* <p>{item.entries[0]?.partOfSpeech}</p> */}
+              <p> Definition: {item.senses?.[0]?.definition}</p>
             </div>
           ))}
       </div>
