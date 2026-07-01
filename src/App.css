@@ -40,3 +40,18 @@
 .read-the-docs {
   color: #888;
 }
+
+.results-container {
+  width: min(100%, 42rem);
+  margin: 0 auto;
+  padding: 0 0.5rem;
+  text-align: left;
+}
+
+.results-title {
+  margin: 0 0 0.75rem;
+}
+
+.entry-card p {
+  margin: 0 0 0.6rem;
+}

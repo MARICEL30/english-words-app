@@ -31,14 +31,15 @@ const App = () => {
     <div>
       <Header />
       <SearchBar onSearch={setSearchWord} />
-      <div>
-        <h3>Results for {searchWord}</h3>
+      <div className="results-container">
+        <h2 className="results-title">{searchWord}</h2>
         {data &&
           data.entries.slice(0, 1).map((item: Entry, index: number) => (
-            <div key={index}>
+            <div key={index} className="entry-card">
               <p>{item.word}</p>
-              <p> Pronunciation: {item.pronunciations?.[0]?.text}</p>
-              <p> Definition: {item.senses?.[0]?.definition}</p>
+              <p>Pronunciation: {item.pronunciations?.[0]?.text}</p>
+              <p>Definition: {item.senses?.[0]?.definition}</p>
+              <p>Synonyms: {item.synonyms?.slice(0, 11).join(", ")}</p>
             </div>
           ))}
       </div>

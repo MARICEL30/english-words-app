@@ -4,7 +4,7 @@ export const SearchContainer = styled.div`
   display: flex;
   justify-content: center;
   margin: 1.5rem auto;
-  width: min(100%, 44rem);
+  width: min(100%, 42rem);
 `;
 
 export const Form = styled.form`
@@ -12,6 +12,7 @@ export const Form = styled.form`
   align-items: center;
   gap: 0.75rem;
   width: 100%;
+  max-width: 38rem;
   padding: 0.5rem;
   border-radius: 999px;
   background: transparent;
